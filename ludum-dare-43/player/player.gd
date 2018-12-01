@@ -1,11 +1,13 @@
 extends KinematicBody2D
 
 export (int) var speed = 250
+export (PackedScene) var bullet_scene = null;
 
 
 func _process(delta):
 	move_player(delta)
 	rotate_player(delta)
+	process_player_shoot(delta)
 
 
 func move_player(delta):
@@ -26,7 +28,14 @@ func move_player(delta):
 	position += direction * speed * delta
 
 
+func process_player_shoot(delta):
+	if Input.is_action_pressed('ui_shoot'):
+		var bullet = bullet_scene.instance()
+		get_tree().get_root().get_node('main').add_child(bullet)
+		bullet.global_position = $bullets_spawn.global_position
+		bullet.rotation = rotation
+
+
 func rotate_player(delta):
-	# Source: https://godotengine.org/qa/19285/rotate-sprite-in-the-direction-of-movement
-	var angle = position.angle_to_point(get_global_mouse_position())
-	rotation = angle
+	# Source: https://www.reddit.com/r/godot/comments/6yb67w/rotating_a_sprite_to_always_face_towards_the/
+	look_at(get_global_mouse_position())
