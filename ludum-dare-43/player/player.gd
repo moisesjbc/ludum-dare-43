@@ -66,3 +66,7 @@ func rotate_player(delta):
 
 func _on_zombie_life_bite(delta):
 	life.decrement(delta)
+
+
+func _on_zombie_time_bite(delta):
+	timer.decrement(delta)
