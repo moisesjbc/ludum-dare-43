@@ -1,23 +1,31 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://bullets/bullet.gd" type="Script" id=1]
-[ext_resource path="res://bullets/time_bullet.png" type="Texture" id=2]
+[ext_resource path="res://bullets/life_bullet.png" type="Texture" id=2]
+[ext_resource path="res://bullets/time_bullet.png" type="Texture" id=3]
 
-[node name="bullet" type="KinematicBody2D"]
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="bullet" type="KinematicBody2D" index="0"]
 
 position = Vector2( 683.628, 309.633 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 8
+collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
-speed = 20000
+_sections_unfolded = [ "Collision", "Transform" ]
+speed = 500
+life_bullet_texture = ExtResource( 2 )
+time_bullet_texture = ExtResource( 3 )
 
 [node name="bullet_sprite" type="Sprite" parent="." index="0"]
 
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="bullet_visibility" type="VisibilityEnabler2D" parent="." index="1"]
@@ -29,6 +37,12 @@ pause_particles = true
 pause_animated_sprites = true
 process_parent = false
 physics_process_parent = false
+
+[node name="bullet_collision_shape" type="CollisionShape2D" parent="." index="2"]
+
+position = Vector2( -0.00890726, -0.111105 )
+scale = Vector2( 1.50331, 1.51669 )
+shape = SubResource( 1 )
 
 [connection signal="viewport_exited" from="bullet_visibility" to="." method="_on_bullet_visibility_viewport_exited"]
 

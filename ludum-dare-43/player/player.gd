@@ -15,6 +15,10 @@ export (bullet_script.AmmoType) var ammo_type = bullet_script.AmmoType.LIFE
 signal time_shoot
 
 
+func _ready():
+	ammo_type = bullet_script.AmmoType.LIFE
+
+
 func _process(delta):
 	move_player(delta)
 	rotate_player(delta)
@@ -40,7 +44,7 @@ func move_player(delta):
 
 
 func process_player_shoot(delta):
-	if Input.is_action_pressed('ui_ammo_switch'):
+	if Input.is_action_just_pressed('ui_ammo_switch'):
 		if ammo_type == bullet_script.AmmoType.TIME:
 			ammo_type = bullet_script.AmmoType.LIFE
 		else:
