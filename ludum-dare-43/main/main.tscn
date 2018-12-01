@@ -52,7 +52,10 @@ _sections_unfolded = [ "Size Flags", "custom_fonts", "custom_styles" ]
 [node name="zombie" parent="." index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 384.372, 259.262 )
+bite_damage = 15
 
 [connection signal="time_shoot" from="player" to="top_layout/timer_label" method="_on_player_time_shoot"]
+
+[connection signal="life_bite" from="zombie" to="player" method="_on_zombie_life_bite"]
 
 

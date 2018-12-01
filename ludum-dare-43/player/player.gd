@@ -62,3 +62,7 @@ func process_player_shoot(delta):
 func rotate_player(delta):
 	# Source: https://www.reddit.com/r/godot/comments/6yb67w/rotating_a_sprite_to_always_face_towards_the/
 	look_at(get_global_mouse_position())
+
+
+func _on_zombie_life_bite(delta):
+	life.decrement(delta)
