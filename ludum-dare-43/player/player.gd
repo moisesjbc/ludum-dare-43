@@ -36,7 +36,7 @@ func move_player(delta):
 	elif Input.is_action_pressed('ui_right'):
 		direction.x = 1.0
 		
-	position += direction * speed * delta
+	move_and_collide(direction * speed * delta)
 
 
 func process_player_shoot(delta):

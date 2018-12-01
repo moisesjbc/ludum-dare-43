@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10.2926 )
+
+[node name="wall" type="StaticBody2D"]
+
+position = Vector2( 22.5377, -7.2287 )
+scale = Vector2( 0.295696, 0.774103 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="collision_shape" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 87.6695, 758.151 )
+scale = Vector2( 9.94673, 77.0323 )
+shape = SubResource( 1 )
+
+[node name="color_rect" type="ColorRect" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -1.0
+margin_right = 188.0
+margin_bottom = 1535.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 0.359375, 0.359375, 1 )
+
+
