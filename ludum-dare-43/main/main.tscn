@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://life/life.tscn" type="PackedScene" id=2]
 [ext_resource path="res://timer/timer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://zombies/zombie.tscn" type="PackedScene" id=4]
 
 [node name="main" type="Node2D"]
 
@@ -47,6 +48,10 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 align = 2
 _sections_unfolded = [ "Size Flags", "custom_fonts", "custom_styles" ]
+
+[node name="zombie" parent="." index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 384.372, 259.262 )
 
 [connection signal="time_shoot" from="player" to="top_layout/timer_label" method="_on_player_time_shoot"]
 
