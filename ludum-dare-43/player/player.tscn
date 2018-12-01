@@ -4,7 +4,7 @@
 [ext_resource path="res://bullets/bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/player.png" type="Texture" id=3]
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -14,6 +14,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 speed = 250
 bullet_scene = ExtResource( 2 )
+timer_path = null
 
 [node name="player_sprite" type="Sprite" parent="." index="0"]
 

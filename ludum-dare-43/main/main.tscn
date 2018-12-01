@@ -7,14 +7,17 @@
 
 [node name="player" parent="." index="0" instance=ExtResource( 1 )]
 
+timer_path = NodePath("../top_layout/timer_label")
+
 [node name="top_layout" type="CenterContainer" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = -1.0
 margin_right = 1027.0
-margin_bottom = 40.0
+margin_bottom = 39.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -29,5 +32,7 @@ margin_left = 476.0
 margin_top = 3.0
 margin_right = 551.0
 margin_bottom = 37.0
+
+[connection signal="time_shoot" from="player" to="top_layout/timer_label" method="_on_player_time_shoot"]
 
 

@@ -2,6 +2,10 @@ extends KinematicBody2D
 
 export (int) var speed = 250
 export (PackedScene) var bullet_scene = null;
+export (NodePath) var timer_path = null;
+onready var timer = get_node(timer_path)
+
+signal time_shoot
 
 
 func _process(delta):
@@ -29,7 +33,7 @@ func move_player(delta):
 
 
 func process_player_shoot(delta):
-	if Input.is_action_pressed('ui_shoot'):
+	if Input.is_action_pressed('ui_shoot') and timer.decrement_time(1):
 		var bullet = bullet_scene.instance()
 		get_tree().get_root().get_node('main').add_child(bullet)
 		bullet.global_position = $bullets_spawn.global_position
