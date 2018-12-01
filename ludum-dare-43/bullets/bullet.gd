@@ -17,13 +17,7 @@ func _process(delta):
 	var collision = move_and_collide(velocity)
 	if collision:
 		queue_free()
-		print('collision with')
-		print(collision.collider.name)
-		print('collision.collider.zombie_type')
-		print(collision.collider.zombie_type)
-		print('ammo_type')
-		print(ammo_type)
-		if collision.collider.name == 'zombie' and collision.collider.zombie_type == ammo_type:
+		if collision.collider.is_in_group('zombies') and collision.collider.zombie_type == ammo_type:
 			collision.collider.queue_free()
 
 

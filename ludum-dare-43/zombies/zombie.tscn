@@ -9,7 +9,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="zombie" type="KinematicBody2D"]
+[node name="zombie" type="KinematicBody2D" index="0" groups=[
+"zombies",
+]]
 
 input_pickable = false
 collision_layer = 2

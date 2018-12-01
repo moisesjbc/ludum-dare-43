@@ -40,7 +40,13 @@ func move_player(delta):
 	elif Input.is_action_pressed('ui_right'):
 		direction.x = 1.0
 		
-	move_and_collide(direction * speed * delta)
+	var velocity = direction * speed * delta
+	var collision = move_and_collide(velocity)
+	
+	# Push zombies away
+	# Source: https://godotengine.org/qa/28117/how-to-push-another-kinematicbody2d
+	if collision and collision.collider.is_in_group('zombies'):
+		collision.collider.move_and_collide(-(position - collision.collider.position).normalized() * speed * delta * 2)
 
 
 func process_player_shoot(delta):

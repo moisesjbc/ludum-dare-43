@@ -39,9 +39,12 @@ func _process(delta):
 	var direction = Vector2(1.0, 0.0).rotated(rotation)
 	var velocity = direction * speed * delta
 	var collision = move_and_collide(velocity)
-	if collision and collision.get_collider().name == 'player' and bite_current_cooldown <= 0:
-		bite_current_cooldown = bite_cooldown
-		if zombie_type == bullet_script.AmmoType.LIFE:
-			emit_signal('life_bite', life_bite_damage)
-		else:
-			emit_signal('time_bite', time_bite_damage)
+	if collision:
+		if collision.get_collider().name == 'player' and bite_current_cooldown <= 0:
+			bite_current_cooldown = bite_cooldown
+			if zombie_type == bullet_script.AmmoType.LIFE:
+				emit_signal('life_bite', life_bite_damage)
+			else:
+				emit_signal('time_bite', time_bite_damage)
+		elif collision.collider.is_in_group('zombies'):
+			collision.collider.move_and_collide(-(position - collision.collider.position).normalized() * speed * delta * 2)
