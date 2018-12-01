@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://life/life.tscn" type="PackedScene" id=2]
-[ext_resource path="res://timer/timer.tscn" type="PackedScene" id=3]
-[ext_resource path="res://wall/wall.tscn" type="PackedScene" id=4]
-[ext_resource path="res://main/zombies_respawn.gd" type="Script" id=5]
-[ext_resource path="res://zombies/zombie.tscn" type="PackedScene" id=6]
+[ext_resource path="res://menus/game_over/game_over.tscn" type="PackedScene" id=2]
+[ext_resource path="res://life/life.tscn" type="PackedScene" id=3]
+[ext_resource path="res://timer/timer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://wall/wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://main/zombies_respawn.gd" type="Script" id=6]
+[ext_resource path="res://zombies/zombie.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -55,7 +56,9 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="top_layout" type="HBoxContainer" parent="CanvasLayer" index="0"]
+[node name="game_over" parent="CanvasLayer" index="0" instance=ExtResource( 2 )]
+
+[node name="top_layout" type="HBoxContainer" parent="CanvasLayer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -74,7 +77,7 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Size Flags" ]
 
-[node name="life" parent="CanvasLayer/top_layout" index="0" instance=ExtResource( 2 )]
+[node name="life" parent="CanvasLayer/top_layout" index="0" instance=ExtResource( 3 )]
 
 margin_top = 3.0
 margin_right = 497.0
@@ -82,7 +85,7 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 _sections_unfolded = [ "Size Flags", "custom_colors", "custom_fonts" ]
 
-[node name="timer_label" parent="CanvasLayer/top_layout" index="1" instance=ExtResource( 3 )]
+[node name="timer_label" parent="CanvasLayer/top_layout" index="1" instance=ExtResource( 4 )]
 
 margin_left = 501.0
 margin_top = 3.0
@@ -94,22 +97,22 @@ _sections_unfolded = [ "Size Flags", "custom_fonts", "custom_styles" ]
 
 [node name="walls" type="Node" parent="." index="2"]
 
-[node name="wall" parent="walls" index="0" instance=ExtResource( 4 )]
+[node name="wall" parent="walls" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( -595.584, -265.749 )
 
-[node name="wall3" parent="walls" index="1" instance=ExtResource( 4 )]
+[node name="wall3" parent="walls" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 828.492, -258.9 )
 
-[node name="wall2" parent="walls" index="2" instance=ExtResource( 4 )]
+[node name="wall2" parent="walls" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 878.926, -316.751 )
 rotation = 1.5708
 scale = Vector2( 0.295696, 0.960435 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="wall4" parent="walls" index="3" instance=ExtResource( 4 )]
+[node name="wall4" parent="walls" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 882.72, 903.346 )
 rotation = 1.5708
@@ -120,8 +123,8 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
 curve = SubResource( 1 )
-script = ExtResource( 5 )
-zombie_scene = ExtResource( 6 )
+script = ExtResource( 6 )
+zombie_scene = ExtResource( 7 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="walls/zombies_respawn" index="0"]
 
@@ -143,6 +146,8 @@ one_shot = false
 autostart = true
 
 [connection signal="time_shoot" from="player" to="CanvasLayer/top_layout/timer_label" method="_on_player_time_shoot"]
+
+[connection signal="player_died" from="CanvasLayer/top_layout/life" to="CanvasLayer/game_over" method="_on_life_player_died"]
 
 [connection signal="timeout" from="walls/zombies_respawn/zombies_respawn_timer" to="walls/zombies_respawn" method="_on_zombies_respawn_timer_timeout"]
 
