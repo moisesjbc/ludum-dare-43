@@ -14,6 +14,8 @@ speed = 250
 
 [node name="player_sprite" type="Sprite" parent="." index="0"]
 
+rotation = -1.5708
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 
