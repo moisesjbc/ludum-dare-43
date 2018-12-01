@@ -1,11 +1,13 @@
 extends KinematicBody2D
 
-export (int) var speed = 20000
+enum AmmoType {
+  TIME,
+  LIFE
+}
 
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+export (int) var speed = 20000
+var ammo_type = AmmoType.LIFE
+
 
 func _process(delta):
 	var velocity = (Vector2(1, 0) * speed * delta).rotated(rotation)
@@ -14,3 +16,7 @@ func _process(delta):
 
 func _on_bullet_visibility_viewport_exited(viewport):
 	queue_free()
+
+
+func set_ammo_type(new_ammo_type):
+	ammo_type = new_ammo_type

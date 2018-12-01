@@ -15,6 +15,8 @@ _sections_unfolded = [ "Transform" ]
 speed = 250
 bullet_scene = ExtResource( 2 )
 timer_path = null
+life_path = null
+ammo_type = null
 
 [node name="player_sprite" type="Sprite" parent="." index="0"]
 

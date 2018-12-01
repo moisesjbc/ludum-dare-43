@@ -18,7 +18,7 @@ func _process(delta):
 	print_time()
 
 
-func decrement_time(delta_seconds):
+func decrement(delta_seconds):
 	if seconds > delta_seconds:
 		seconds -= delta_seconds
 		if seconds < 0:

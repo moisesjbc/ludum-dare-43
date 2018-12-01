@@ -4,11 +4,12 @@
 [ext_resource path="res://life/life.tscn" type="PackedScene" id=2]
 [ext_resource path="res://timer/timer.tscn" type="PackedScene" id=3]
 
-[node name="main" type="Node2D" index="0"]
+[node name="main" type="Node2D"]
 
 [node name="player" parent="." index="0" instance=ExtResource( 1 )]
 
 timer_path = NodePath("../top_layout/timer_label")
+life_path = NodePath("../top_layout/life")
 
 [node name="top_layout" type="HBoxContainer" parent="." index="1"]
 

@@ -3,7 +3,7 @@
 [ext_resource path="res://bullets/bullet.gd" type="Script" id=1]
 [ext_resource path="res://bullets/time_bullet.png" type="Texture" id=2]
 
-[node name="bullet" type="KinematicBody2D"]
+[node name="bullet" type="KinematicBody2D" index="0"]
 
 position = Vector2( 683.628, 309.633 )
 input_pickable = false

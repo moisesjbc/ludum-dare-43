@@ -5,6 +5,13 @@ export (PackedScene) var bullet_scene = null;
 export (NodePath) var timer_path = null;
 onready var timer = get_node(timer_path)
 
+export (NodePath) var life_path = null;
+onready var life = get_node(life_path)
+
+const bullet_script = preload("res://bullets/bullet.gd")
+export (bullet_script.AmmoType) var ammo_type = bullet_script.AmmoType.LIFE
+
+
 signal time_shoot
 
 
@@ -33,11 +40,23 @@ func move_player(delta):
 
 
 func process_player_shoot(delta):
-	if Input.is_action_pressed('ui_shoot') and timer.decrement_time(1):
-		var bullet = bullet_scene.instance()
-		get_tree().get_root().get_node('main').add_child(bullet)
-		bullet.global_position = $bullets_spawn.global_position
-		bullet.rotation = rotation
+	if Input.is_action_pressed('ui_ammo_switch'):
+		if ammo_type == bullet_script.AmmoType.TIME:
+			ammo_type = bullet_script.AmmoType.LIFE
+		else:
+			ammo_type = bullet_script.AmmoType.TIME
+	
+	if Input.is_action_pressed('ui_shoot'):
+		var ammo = life
+		if ammo_type == bullet_script.AmmoType.TIME:
+			ammo = timer
+			
+		if ammo.decrement(1):
+			var bullet = bullet_scene.instance()
+			bullet.set_ammo_type(ammo_type)
+			get_tree().get_root().get_node('main').add_child(bullet)
+			bullet.global_position = $bullets_spawn.global_position
+			bullet.rotation = rotation
 
 
 func rotate_player(delta):
