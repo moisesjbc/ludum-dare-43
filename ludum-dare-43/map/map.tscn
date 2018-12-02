@@ -13,7 +13,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -565.787, -283.821, 0, 0, 0, 0, -565.787, 937.073, 0, 0, 0, 0, 846.74, 933.982, 0, 0, 0, 0, 837.468, -283.821 )
 }
 
-[node name="walls" type="Node"]
+[node name="map" type="Node" index="0"]
 
 [node name="left_wall" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -87,9 +87,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -595.0
+margin_left = -598.0
 margin_top = -1189.0
-margin_right = 3554.0
+margin_right = 3551.0
 margin_bottom = -44.0
 rect_rotation = 90.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -155,7 +155,7 @@ position = Vector2( 789.099, 861.045 )
 [node name="respawn_timer" type="Timer" parent="powerups_respawn" index="2"]
 
 process_mode = 1
-wait_time = 3.0
+wait_time = 10.0
 one_shot = false
 autostart = true
 
