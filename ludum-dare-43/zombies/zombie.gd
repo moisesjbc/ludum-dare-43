@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
-export (int) var speed = 500
+export (int) var max_speed = 300
+export (int) var min_speed = 150
+onready var speed = rand_range(min_speed, max_speed)
 export (int) var bite_cooldown = 0.5
 export (int) var life_bite_damage = 15
 export (int) var time_bite_damage = 1
