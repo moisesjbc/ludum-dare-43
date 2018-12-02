@@ -11,12 +11,19 @@ signal time_bite
 export (Texture) var time_zombie_texture
 export (Texture) var life_zombie_texture
 export (float) var time_zombie_probability = 0.2
+export (AudioStream) var bite_1
+export (AudioStream) var bite_2
 
 const bullet_script = preload("res://bullets/bullet.gd")
 export (bullet_script.AmmoType) var zombie_type = bullet_script.AmmoType.LIFE
 
 
 func _ready():
+	if randf() < 0.5:
+		$bite_sound.stream = bite_1
+	else:
+		$bite_sound.stream = bite_2
+				
 	if randf() <= time_zombie_probability:
 		set_type(bullet_script.AmmoType.TIME)
 	else:
@@ -41,6 +48,7 @@ func _process(delta):
 	var collision = move_and_collide(velocity)
 	if collision:
 		if collision.get_collider().name == 'player' and bite_current_cooldown <= 0:
+			$bite_sound.play()
 			bite_current_cooldown = bite_cooldown
 			if zombie_type == bullet_script.AmmoType.LIFE:
 				emit_signal('life_bite', life_bite_damage)
