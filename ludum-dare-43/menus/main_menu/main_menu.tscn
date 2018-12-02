@@ -11,7 +11,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="main_menu" type="CanvasLayer"]
+[node name="main_menu" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -42,9 +42,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 419.0
+margin_left = 262.0
 margin_top = 161.0
-margin_right = 606.0
+margin_right = 762.0
 margin_bottom = 441.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -62,8 +62,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 187.0
+margin_right = 500.0
 margin_bottom = 40.0
+rect_min_size = Vector2( 500, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -79,7 +80,7 @@ group = null
 text = "Start game"
 flat = false
 align = 1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="how_to_play_button" type="Button" parent="CenterContainer/VBoxContainer" index="1"]
 
@@ -88,7 +89,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 60.0
-margin_right = 187.0
+margin_right = 500.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -114,7 +115,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 120.0
-margin_right = 187.0
+margin_right = 500.0
 margin_bottom = 160.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -140,7 +141,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 180.0
-margin_right = 187.0
+margin_right = 500.0
 margin_bottom = 220.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -166,7 +167,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 240.0
-margin_right = 187.0
+margin_right = 500.0
 margin_bottom = 280.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
