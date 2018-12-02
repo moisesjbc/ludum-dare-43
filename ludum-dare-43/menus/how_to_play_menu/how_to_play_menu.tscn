@@ -52,9 +52,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 37.0
-margin_top = 13.0
+margin_top = 22.0
 margin_right = 989.0
-margin_bottom = 593.0
+margin_bottom = 602.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -104,13 +104,13 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.921875, 0.648193, 0, 1 )
+custom_colors/font_color = Color( 0.164642, 0.557726, 0.648438, 1 )
 text = "Mechanics"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="mechanics_text" type="Label" parent="CenterContainer/VBoxContainer" index="2"]
 
@@ -128,9 +128,9 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-text = "The world of mages is suffering a zombies apocalypse! 
+text = "The world of magicians is suffering a zombies apocalypse! 
 Try to survive as long as you can by fighting back hordes of zombies trying 
-to drain your life (red mages) or your time (green mages).
+to drain your life (red magicians) or your time (green magicians).
 Use your spells book to defend yourself, but be aware: spells will cost you your 
 life / time as well! 
 
@@ -158,13 +158,13 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.921875, 0.648193, 0, 1 )
+custom_colors/font_color = Color( 0.164642, 0.557726, 0.648438, 1 )
 text = "Controls"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="controls_text" type="Label" parent="CenterContainer/VBoxContainer" index="4"]
 
