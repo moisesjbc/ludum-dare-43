@@ -8,8 +8,11 @@
 
 [node name="main" type="Node2D"]
 
+position = Vector2( 85.9186, 215.55 )
+
 [node name="player" parent="." index="0" instance=ExtResource( 1 )]
 
+position = Vector2( 90, 113 )
 _sections_unfolded = [ "Collision", "Pause", "Transform" ]
 timer_path = NodePath("../CanvasLayer/top_layout/timer_label")
 life_path = NodePath("../CanvasLayer/top_layout/life")

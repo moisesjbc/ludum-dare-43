@@ -17,7 +17,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[node name="zombie" type="KinematicBody2D" groups=[
+[node name="zombie" type="KinematicBody2D" index="0" groups=[
 "zombies",
 ]]
 
@@ -30,7 +30,7 @@ _sections_unfolded = [ "Collision", "collision" ]
 speed = 200
 bite_cooldown = 0.5
 life_bite_damage = 15
-time_bite_damage = 1
+time_bite_damage = 2
 time_zombie_texture = ExtResource( 2 )
 life_zombie_texture = ExtResource( 3 )
 time_zombie_probability = 0.2
