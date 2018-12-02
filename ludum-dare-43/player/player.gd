@@ -10,7 +10,7 @@ onready var life = get_node(life_path)
 
 const bullet_script = preload("res://bullets/bullet.gd")
 export (bullet_script.AmmoType) var ammo_type = bullet_script.AmmoType.LIFE
-
+var on_shoot_cooldown = false
 
 signal time_shoot
 
@@ -56,7 +56,9 @@ func process_player_shoot(delta):
 		else:
 			ammo_type = bullet_script.AmmoType.TIME
 	
-	if Input.is_action_pressed('ui_shoot'):
+	if Input.is_action_pressed('ui_shoot') and not on_shoot_cooldown:
+		start_shoot_cooldown()
+		
 		var ammo = life
 		if ammo_type == bullet_script.AmmoType.TIME:
 			ammo = timer
@@ -74,9 +76,17 @@ func rotate_player(delta):
 	look_at(get_global_mouse_position())
 
 
+func start_shoot_cooldown():
+	on_shoot_cooldown = true
+	$shoot_cooldown_timer.start()
+
+
 func _on_zombie_life_bite(delta):
 	life.decrement(delta)
 
 
 func _on_zombie_time_bite(delta):
 	timer.decrement(delta)
+
+func _on_shoot_cooldown_timer_timeout():
+	on_shoot_cooldown = false

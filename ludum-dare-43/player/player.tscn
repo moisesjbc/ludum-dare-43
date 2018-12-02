@@ -64,4 +64,13 @@ position = Vector2( 10, 22.7452 )
 scale = Vector2( 2.41827, 0.750209 )
 shape = SubResource( 3 )
 
+[node name="shoot_cooldown_timer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="shoot_cooldown_timer" to="." method="_on_shoot_cooldown_timer_timeout"]
+
 

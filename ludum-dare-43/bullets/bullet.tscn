@@ -50,7 +50,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Emission Shape", "Flags", "Spread", "Trail" ]
 
-[node name="bullet" type="KinematicBody2D" index="0"]
+[node name="bullet" type="KinematicBody2D"]
 
 position = Vector2( 683.628, 309.633 )
 input_pickable = false
