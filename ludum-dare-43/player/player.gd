@@ -95,4 +95,5 @@ func _on_shoot_cooldown_timer_timeout():
 
 
 func _on_health_powerup_picked(heal_points):
+	$heal_sound.play()
 	life.increment(heal_points)
