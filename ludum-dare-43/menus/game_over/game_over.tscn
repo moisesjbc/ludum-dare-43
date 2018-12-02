@@ -80,10 +80,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 97.0
-margin_top = 88.0
-margin_right = 304.0
-margin_bottom = 212.0
+margin_left = 44.0
+margin_top = 43.0
+margin_right = 358.0
+margin_bottom = 257.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -100,7 +100,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 207.0
+margin_right = 314.0
 margin_bottom = 34.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -111,6 +111,7 @@ size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "GAME OVER"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -123,7 +124,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 84.0
-margin_right = 207.0
+margin_right = 314.0
 margin_bottom = 124.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -142,6 +143,34 @@ flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
+[node name="return_to_main_menu_button" type="Button" parent="Panel/CenterContainer/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 174.0
+margin_right = 314.0
+margin_bottom = 214.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Return to main menu"
+flat = false
+align = 1
+_sections_unfolded = [ "custom_fonts" ]
+
 [connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/restart_game_button" to="." method="_on_restart_game_button_pressed"]
+
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/return_to_main_menu_button" to="." method="_on_return_to_main_menu_button_pressed"]
 
 
