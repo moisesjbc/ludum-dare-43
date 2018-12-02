@@ -6,7 +6,7 @@
 [ext_resource path="res://life/life.tscn" type="PackedScene" id=4]
 [ext_resource path="res://timer/timer.tscn" type="PackedScene" id=5]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" index="0"]
 
 position = Vector2( 85.9186, 215.55 )
 
