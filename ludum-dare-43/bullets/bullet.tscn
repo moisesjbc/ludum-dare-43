@@ -1,15 +1,56 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://bullets/bullet.gd" type="Script" id=1]
 [ext_resource path="res://bullets/life_bullet.png" type="Texture" id=2]
 [ext_resource path="res://bullets/time_bullet.png" type="Texture" id=3]
+[ext_resource path="res://bullets/particle.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+radius = 10.0
 
-[node name="bullet" type="KinematicBody2D"]
+[sub_resource type="ParticlesMaterial" id=2]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 2.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Emission Shape", "Flags", "Spread", "Trail" ]
+
+[node name="bullet" type="KinematicBody2D" index="0"]
 
 position = Vector2( 683.628, 309.633 )
 input_pickable = false
@@ -24,6 +65,7 @@ time_bullet_texture = ExtResource( 3 )
 
 [node name="bullet_sprite" type="Sprite" parent="." index="0"]
 
+visible = false
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Z Index" ]
@@ -42,7 +84,30 @@ physics_process_parent = false
 
 position = Vector2( -0.00890726, -0.111105 )
 scale = Vector2( 1.50331, 1.51669 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
+
+[node name="bullet_particles" type="Particles2D" parent="." index="3"]
+
+rotation = -1.5708
+emitting = true
+amount = 15
+lifetime = 0.7
+one_shot = false
+preprocess = 5.0
+speed_scale = 3.0
+explosiveness = 0.0
+randomness = 0.5
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 2 )
+texture = ExtResource( 4 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
 
 [connection signal="viewport_exited" from="bullet_visibility" to="." method="_on_bullet_visibility_viewport_exited"]
 

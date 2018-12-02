@@ -8,6 +8,8 @@ enum AmmoType {
 export (int) var speed = 500
 export (Texture) var life_bullet_texture
 export (Texture) var time_bullet_texture
+var life_bullet_color = Color(0.8, 0.0, 0.0, 1.0)
+var time_bullet_color = Color(0.0, 0.8, 0.0, 1.0)
 
 var ammo_type = AmmoType.LIFE
 
@@ -28,6 +30,8 @@ func _on_bullet_visibility_viewport_exited(viewport):
 func set_ammo_type(new_ammo_type):
 	ammo_type = new_ammo_type
 	if ammo_type == AmmoType.LIFE:
+		$bullet_particles.set_modulate(life_bullet_color)
 		$bullet_sprite.texture = life_bullet_texture
 	else:
+		$bullet_particles.set_modulate(time_bullet_color)
 		$bullet_sprite.texture = time_bullet_texture
