@@ -12,7 +12,7 @@ config_version=3
 
 config/name="ludum-dare-43"
 run/main_scene="res://menus/main_menu/main_menu.tscn"
-config/icon="res://icon.png"
+config/icon="res://player/player.png"
 
 [autoload]
 

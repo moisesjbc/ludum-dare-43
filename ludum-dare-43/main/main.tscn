@@ -89,7 +89,7 @@ margin_right = 998.0
 margin_bottom = 37.0
 size_flags_horizontal = 3
 align = 2
-_sections_unfolded = [ "Size Flags", "custom_fonts", "custom_styles" ]
+_sections_unfolded = [ "Size Flags", "custom_colors", "custom_fonts", "custom_styles" ]
 
 [connection signal="time_shoot" from="player" to="CanvasLayer/top_layout/timer_label" method="_on_player_time_shoot"]
 
