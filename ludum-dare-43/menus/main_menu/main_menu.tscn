@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://menus/main_menu/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://player/player.png" type="Texture" id=2]
@@ -15,6 +15,14 @@ _sections_unfolded = [ "Font", "Settings" ]
 [sub_resource type="DynamicFont" id=1]
 
 size = 30
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 20
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 3 )
@@ -53,9 +61,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 262.0
-margin_top = 37.0
+margin_top = 15.0
 margin_right = 762.0
-margin_bottom = 565.0
+margin_bottom = 586.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -252,6 +260,29 @@ group = null
 text = "Exit game"
 flat = false
 align = 1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="ludum_dare_label" type="Label" parent="CenterContainer/VBoxContainer" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 548.0
+margin_right = 500.0
+margin_bottom = 571.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Made for Ludum Dare #43"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/start_game_button" to="." method="_on_start_game_button_pressed"]
