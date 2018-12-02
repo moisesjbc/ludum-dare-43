@@ -57,6 +57,7 @@ func process_player_shoot(delta):
 			ammo_type = bullet_script.AmmoType.TIME
 	
 	if Input.is_action_pressed('ui_shoot') and not on_shoot_cooldown:
+		$shoot.play()
 		start_shoot_cooldown()
 		
 		var ammo = life

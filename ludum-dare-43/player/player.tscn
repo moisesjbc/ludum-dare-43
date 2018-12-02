@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://bullets/bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/player.png" type="Texture" id=3]
+[ext_resource path="res://player/shoot.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -21,7 +22,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[node name="player" type="KinematicBody2D" index="0"]
+[node name="player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -70,6 +71,15 @@ process_mode = 1
 wait_time = 0.2
 one_shot = false
 autostart = false
+
+[node name="shoot" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="timeout" from="shoot_cooldown_timer" to="." method="_on_shoot_cooldown_timer_timeout"]
 
