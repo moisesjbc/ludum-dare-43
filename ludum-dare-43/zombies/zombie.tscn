@@ -1,15 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://zombies/zombie.gd" type="Script" id=1]
 [ext_resource path="res://zombies/time_zombie.png" type="Texture" id=2]
 [ext_resource path="res://zombies/life_zombie.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+radius = 10.0
 
-[node name="zombie" type="KinematicBody2D" groups=[
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[node name="zombie" type="KinematicBody2D" index="0" groups=[
 "zombies",
 ]]
 
@@ -31,13 +37,26 @@ zombie_type = null
 [node name="zombie_sprite" type="Sprite" parent="." index="0"]
 
 rotation = 1.5708
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
-[node name="collision_shape" type="CollisionShape2D" parent="." index="1"]
+[node name="hat_collision_shape" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( -0.171447, -0.246162 )
-scale = Vector2( 3.25395, 3.1988 )
+position = Vector2( -13.3336, -0.246162 )
+scale = Vector2( 2.45145, 3.1988 )
 shape = SubResource( 1 )
+
+[node name="left_arm_collission_shape" type="CollisionShape2D" parent="." index="2"]
+
+position = Vector2( 13.8265, -30.4008 )
+scale = Vector2( 2.52094, 0.35157 )
+shape = SubResource( 2 )
+
+[node name="right_arm_collission_shape2" type="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( 13.5887, 30.0072 )
+scale = Vector2( 2.52094, 0.35157 )
+shape = SubResource( 2 )
 
 
