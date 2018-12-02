@@ -1,0 +1,142 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://wall/wall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://main/zombies_respawn.gd" type="Script" id=2]
+[ext_resource path="res://zombies/zombie.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -565.787, -283.821, 0, 0, 0, 0, -565.787, 937.073, 0, 0, 0, 0, 846.74, 933.982, 0, 0, 0, 0, 837.468, -283.821 )
+}
+
+[node name="walls" type="Node" index="0"]
+
+[node name="left_wall" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( -595.584, -265.749 )
+
+[node name="right_wall" parent="." index="1" instance=ExtResource( 1 )]
+
+position = Vector2( 828.492, -258.9 )
+
+[node name="top_wall" parent="." index="2" instance=ExtResource( 1 )]
+
+position = Vector2( 878.926, -316.751 )
+rotation = 1.5708
+scale = Vector2( 0.295696, 0.960435 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="bot_wall" parent="." index="3" instance=ExtResource( 1 )]
+
+position = Vector2( 882.72, 903.346 )
+rotation = 1.5708
+scale = Vector2( 0.295696, 0.960435 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="zombies_respawn" type="Path2D" parent="." index="4"]
+
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+curve = SubResource( 1 )
+script = ExtResource( 2 )
+zombie_scene = ExtResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="zombies_respawn" index="0"]
+
+position = Vector2( -565.787, -283.821 )
+rotation = 1.5708
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="zombies_respawn_timer" type="Timer" parent="zombies_respawn" index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="top_outside" type="ColorRect" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -1822.0
+margin_top = -1455.0
+margin_right = 2327.0
+margin_bottom = -310.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+
+[node name="left_outside" type="ColorRect" parent="." index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -595.0
+margin_top = -1189.0
+margin_right = 3554.0
+margin_bottom = -44.0
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="right_ouside" type="ColorRect" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2023.0
+margin_top = -1265.0
+margin_right = 6172.0
+margin_bottom = -120.0
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="bot_outside" type="ColorRect" parent="." index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -1768.0
+margin_top = 961.0
+margin_right = 2381.0
+margin_bottom = 2106.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+
+[connection signal="timeout" from="zombies_respawn/zombies_respawn_timer" to="zombies_respawn" method="_on_zombies_respawn_timer_timeout"]
+
+
