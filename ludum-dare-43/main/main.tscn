@@ -19,7 +19,7 @@ _data = {
 
 [node name="player" parent="." index="0" instance=ExtResource( 1 )]
 
-_sections_unfolded = [ "Collision", "Transform" ]
+_sections_unfolded = [ "Collision", "Pause", "Transform" ]
 timer_path = NodePath("../CanvasLayer/top_layout/timer_label")
 life_path = NodePath("../CanvasLayer/top_layout/life")
 
@@ -129,7 +129,7 @@ zombie_scene = ExtResource( 7 )
 [node name="PathFollow2D" type="PathFollow2D" parent="walls/zombies_respawn" index="0"]
 
 position = Vector2( -565.787, -283.821 )
-rotation = 1.57081
+rotation = 1.5708
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0

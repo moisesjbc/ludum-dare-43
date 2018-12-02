@@ -1,15 +1,27 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://bullets/bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/player.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+radius = 10.0
 
-[node name="player" type="KinematicBody2D"]
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[node name="player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -26,17 +38,30 @@ ammo_type = null
 [node name="player_sprite" type="Sprite" parent="." index="0"]
 
 rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="bullets_spawn" type="Position2D" parent="." index="1"]
 
-position = Vector2( 60, 0 )
+position = Vector2( 50, 0 )
 
 [node name="collision_shape" type="CollisionShape2D" parent="." index="2"]
 
-position = Vector2( 1.90735e-06, 1.90735e-06 )
-scale = Vector2( 3.07692, 3.07692 )
+position = Vector2( -10, 0 )
+scale = Vector2( 3.46154, 3.46154 )
 shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( 20, -20 )
+scale = Vector2( 2.69231, 0.5 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="4"]
+
+position = Vector2( 10, 22.7452 )
+scale = Vector2( 2.41827, 0.750209 )
+shape = SubResource( 3 )
 
 
