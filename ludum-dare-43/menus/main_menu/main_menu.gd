@@ -19,6 +19,10 @@ func _on_credits_button_pressed():
 	get_tree().change_scene("res://menus/credits_menu/credits_menu.tscn")
 
 
+func _on_how_to_play_button_pressed():
+	get_tree().change_scene("res://menus/how_to_play_menu/how_to_play_menu.tscn")
+
+
 func _on_toggle_sound_button_pressed():
 	get_node('/root/global').toggle_sound_mode()
 	print_sound_mode()

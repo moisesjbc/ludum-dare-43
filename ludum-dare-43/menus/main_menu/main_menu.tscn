@@ -11,7 +11,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="main_menu" type="CanvasLayer" index="0"]
+[node name="main_menu" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -43,9 +43,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 419.0
-margin_top = 191.0
+margin_top = 161.0
 margin_right = 606.0
-margin_bottom = 411.0
+margin_bottom = 441.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -81,7 +81,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="credits_button" type="Button" parent="CenterContainer/VBoxContainer" index="1"]
+[node name="how_to_play_button" type="Button" parent="CenterContainer/VBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -102,12 +102,12 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Credits"
+text = "How to play"
 flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="toggle_sound_button" type="Button" parent="CenterContainer/VBoxContainer" index="2"]
+[node name="credits_button" type="Button" parent="CenterContainer/VBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -128,12 +128,12 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Sound mode"
+text = "Credits"
 flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="exit_game_button" type="Button" parent="CenterContainer/VBoxContainer" index="3"]
+[node name="toggle_sound_button" type="Button" parent="CenterContainer/VBoxContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -154,12 +154,40 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
+text = "Sound mode"
+flat = false
+align = 1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="exit_game_button" type="Button" parent="CenterContainer/VBoxContainer" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 240.0
+margin_right = 187.0
+margin_bottom = 280.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
 text = "Exit game"
 flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/start_game_button" to="." method="_on_start_game_button_pressed"]
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/how_to_play_button" to="." method="_on_how_to_play_button_pressed"]
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/credits_button" to="." method="_on_credits_button_pressed"]
 
