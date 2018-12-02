@@ -13,7 +13,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -565.787, -283.821, 0, 0, 0, 0, -565.787, 937.073, 0, 0, 0, 0, 846.74, 933.982, 0, 0, 0, 0, 837.468, -283.821 )
 }
 
-[node name="map" type="Node" index="0"]
+[node name="map" type="Node"]
 
 [node name="left_wall" parent="." index="0" instance=ExtResource( 1 )]
 
