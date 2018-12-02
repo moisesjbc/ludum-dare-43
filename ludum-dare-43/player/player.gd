@@ -89,5 +89,10 @@ func _on_zombie_life_bite(delta):
 func _on_zombie_time_bite(delta):
 	timer.decrement(delta)
 
+
 func _on_shoot_cooldown_timer_timeout():
 	on_shoot_cooldown = false
+
+
+func _on_health_powerup_picked(heal_points):
+	life.increment(heal_points)

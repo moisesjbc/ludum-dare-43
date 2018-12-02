@@ -18,7 +18,15 @@ func decrement(life_delta):
 	else:
 		print_life()
 		return true
-	
+
+
+func increment(life_delta):
+	life += life_delta
+	if life > 100:
+		life = 100
+	print_life()
+
+
 func print_life():
 	text = "%03d" % life
 

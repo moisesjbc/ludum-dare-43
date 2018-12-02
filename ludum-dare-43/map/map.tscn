@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://wall/wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://main/zombies_respawn.gd" type="Script" id=2]
 [ext_resource path="res://zombies/zombie.tscn" type="PackedScene" id=3]
+[ext_resource path="res://map/powerups_respawn.gd" type="Script" id=4]
+[ext_resource path="res://powerups/health_powerup/health_powerup.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -137,6 +139,28 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
 
+[node name="powerups_respawn" type="Node2D" parent="." index="9"]
+
+script = ExtResource( 4 )
+health_powerup_scene = ExtResource( 5 )
+
+[node name="left_top_corner" type="Position2D" parent="powerups_respawn" index="0"]
+
+position = Vector2( -513.002, -236.001 )
+
+[node name="right_bot_corner" type="Position2D" parent="powerups_respawn" index="1"]
+
+position = Vector2( 789.099, 861.045 )
+
+[node name="respawn_timer" type="Timer" parent="powerups_respawn" index="2"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = false
+autostart = true
+
 [connection signal="timeout" from="zombies_respawn/zombies_respawn_timer" to="zombies_respawn" method="_on_zombies_respawn_timer_timeout"]
+
+[connection signal="timeout" from="powerups_respawn/respawn_timer" to="powerups_respawn" method="_on_respawn_timer_timeout"]
 
 
