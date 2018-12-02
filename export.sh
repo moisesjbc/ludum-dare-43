@@ -30,7 +30,7 @@ function export_game {
     rm -r "$export_dirpath"
     mkdir -p "$export_dirpath"
     
-    (cd ludum-dare-43 && $GODOT_EXECUTABLE --export "$export_preset" --output "$export_dirpath"/"$executable_filename")
+    (cd godot-project && $GODOT_EXECUTABLE --export "$export_preset" --output "$export_dirpath"/"$executable_filename")
 
     zip_filename="${export_dirname}_${version}.zip"
     zip_filepath="${ZIP_DIRPATH}/${zip_filename}"
