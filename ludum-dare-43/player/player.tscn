@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://bullets/bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/player.png" type="Texture" id=3]
 [ext_resource path="res://player/shoot.ogg" type="AudioStream" id=4]
 [ext_resource path="res://player/wiii.ogg" type="AudioStream" id=5]
+[ext_resource path="res://bullets/particle.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -23,7 +24,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -90,6 +91,13 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+
+[node name="ammo_type_sprite" type="Sprite" parent="." index="8"]
+
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 50, -20 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Visibility" ]
 
 [connection signal="timeout" from="shoot_cooldown_timer" to="." method="_on_shoot_cooldown_timer_timeout"]
 

@@ -52,8 +52,10 @@ func move_player(delta):
 func process_player_shoot(delta):
 	if Input.is_action_just_pressed('ui_ammo_switch'):
 		if ammo_type == bullet_script.AmmoType.TIME:
+			$ammo_type_sprite.set_modulate(Color(1.0, 0.0, 0.0, 1.0))
 			ammo_type = bullet_script.AmmoType.LIFE
 		else:
+			$ammo_type_sprite.set_modulate(Color(0.0, 1.0, 0.0, 1.0))
 			ammo_type = bullet_script.AmmoType.TIME
 	
 	if Input.is_action_pressed('ui_shoot') and not on_shoot_cooldown:
