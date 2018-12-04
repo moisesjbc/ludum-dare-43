@@ -31,10 +31,11 @@ One last note: healing powerups will randomly appear on the map,  so keep moving
 - [Download Duof v1.0.0 for Windows](https://github.com/moisesjbc/ludum-dare-43/releases/download/v1.0.0/duof_windows_v1_0_0.zip)
 - [Download Duof v1.0.0 for Browser](https://github.com/moisesjbc/ludum-dare-43/releases/download/v1.0.0/duof_html_v1_0_0.zip)
 
-## Bugs videos!
+## Development videos!
 
-- Setting shoots local to player node was a bad idea: [Video - "local shoots" bug](multimedia/video/local_shoots)
-- 4 shoots are better than one: [Video - 4 "shoots are better" bug](multimedia/video/4_shoots_are_better)
+- Testing gameplay: [Video - testing gameplay](multimedia/video/duof_development_version.ogv)
+- Setting shoots local to player node was a bad idea: [Video - "local shoots" bug](multimedia/video/duof_local_shoots.ogv)
+- 4 shoots are better than one: [Video - 4 "shoots are better" bug](multimedia/video/duof_4_shoots_are_better.ogv)
 
 ## Credits
 
